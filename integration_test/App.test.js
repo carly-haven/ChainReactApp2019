@@ -51,6 +51,9 @@ const driver = wd.promiseChainRemote("localhost", 4723) // 4723 is the default A
 test("integration tests work", async () => {
   await driver.init(capabilities.ios)
   await driver.sleep(2 * 1000) // wait for app to load
+  // await driver.switchTo().alert().accept();
+  await driver.execute("mobile:alert", { action: "accept" })
+  await driver.sleep(2 * 1000) // wait for app to load
   await driver.percySnapshot("test")
   await driver.quit()
 })

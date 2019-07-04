@@ -38,7 +38,8 @@ interface AppState {
 export class App extends React.Component<{}, AppState> {
   componentWillMount() {
     if (Platform.OS === "android") StatusBar.setBackgroundColor(palette.portGore)
-    StatusBar.setBarStyle("light-content")
+    // StatusBar.setBarStyle("light-content")
+    StatusBar.setHidden(true)
   }
   /**
    * When the component is mounted. This happens asynchronously and simply
